@@ -1,0 +1,234 @@
+../src/featureCRUD.c:9:13: Global f1 initialized to null value: f1 = NULL
+  A reference with no null annotation is assigned or initialized to NULL.  Use
+  /*@null@*/ to declare the reference as a possibly null pointer. (Use
+  -nullassign to inhibit warning)
+../src/featureCRUD.c:9:13: Global f1 initialized to null value:
+                              feature * f1 = NULL = NULL
+../src/featureCRUD.c: (in function loadFeatures)
+../src/featureCRUD.c:31:3: Return value (type char *) ignored:
+                              fgets(featureFil...
+  Result returned by function call is not used. If this is intended, can cast
+  result to (void) to eliminate message. (Use -retvalother to inhibit warning)
+../src/featureCRUD.c:36:8: Arrow access from possibly null pointer temp:
+                              temp->featureId
+  A possibly null pointer is dereferenced.  Value is either the result of a
+  function which may return null (in which case, code should check it is not
+  null), or a global, parameter or structure field declared with the null
+  qualifier. (Use -nullderef to inhibit warning)
+   ../src/featureCRUD.c:23:10: Storage temp may become null
+../src/featureCRUD.c:41:8: Arrow access from possibly null pointer temp:
+                              temp->completionStatus
+   ../src/featureCRUD.c:23:10: Storage temp may become null
+../src/featureCRUD.c:41:4: Assignment of int to double:
+                              temp->completionStatus = atoi(data)
+  To allow all numeric types to match, use +relaxtypes.
+../src/featureCRUD.c:46:15: Arrow access from possibly null pointer temp:
+                               temp->featureName
+   ../src/featureCRUD.c:23:10: Storage temp may become null
+../src/featureCRUD.c:51:15: Arrow access from possibly null pointer temp:
+                               temp->featureDesc
+   ../src/featureCRUD.c:23:10: Storage temp may become null
+../src/featureCRUD.c:54:2: Return value (type int) ignored:
+                              fclose(feature_file)
+  Result returned by function call is not used. If this is intended, can cast
+  result to (void) to eliminate message. (Use -retvalint to inhibit warning)
+../src/featureCRUD.c:56:2: Function returns with non-null global f1 referencing
+                              null storage
+  A global variable does not satisfy its annotations when control is
+  transferred. (Use -globstate to inhibit warning)
+   ../src/featureCRUD.c:55:5: Storage f1 may become null
+../src/featureCRUD.c: (in function freeFeatures)
+../src/featureCRUD.c:58:7: Unqualified storage f1 passed as only param:
+                              free (f1)
+  Unqualified storage is transferred in an inconsistent way. (Use
+  -unqualifiedtrans to inhibit warning)
+   ../src/featureCRUD.c:55:2: Storage f1 becomes owned
+../src/featureCRUD.c:59:2: Function returns with global f1 referencing released
+                              storage
+   ../src/featureCRUD.c:58:7: Storage f1 released
+../src/main.c: (in function main)
+../src/main.c:21:3: Return value (type int) ignored: scanf("%d", &ch)
+../src/main.c:27:4: Return value (type int) ignored: scanf("%d", &userId)
+../src/main.c:29:4: Return value (type int) ignored: scanf("%s", user...
+../src/main.c:46:6: Return value (type int) ignored: scanf("%d", &tlC...
+../src/main.c:64:7: Return value (type int) ignored: scanf("%d", &sto...
+../src/main.c:66:7: Return value (type int) ignored: scanf("%d", &fea...
+../src/main.c:68:7: Return value (type int) ignored: scanf("%lf", &co...
+../src/main.c:70:7: Return value (type int) ignored: scanf("%s", stor...
+../src/main.c:72:7: Return value (type int) ignored: scanf("%s", stor...
+../src/main.c:79:47: Variable userId shadows outer declaration
+  An outer declaration is shadowed by the local declaration. (Use -shadow to
+  inhibit warning)
+   ../src/main.c:24:8: Previous definition of userId: int
+../src/main.c:84:7: Return value (type int) ignored: scanf("%d", &taskId)
+../src/main.c:86:7: Return value (type int) ignored: scanf("%d", &sto...
+../src/main.c:88:7: Return value (type int) ignored: scanf("%d", &com...
+../src/main.c:90:7: Return value (type int) ignored: scanf("%d", &userId)
+../src/main.c:92:7: Return value (type int) ignored: scanf("%s", task...
+../src/main.c:94:7: Return value (type int) ignored: scanf("%s", task...
+../src/main.c:115:4: Return value (type int) ignored: scanf("%d", &userId)
+../src/main.c:117:4: Return value (type int) ignored: scanf("%s", user...
+../src/main.c:134:6: Return value (type int) ignored: scanf("%d", &tlc...
+../src/main.c:144:7: Return value (type int) ignored: scanf("%d", &taskId)
+../src/main.c:146:7: Return value (type int) ignored: scanf("%d", &com...
+../src/taskCRUD.c:10:16: Global taskHead initialized to null value:
+                            taskHead = NULL
+../src/taskCRUD.c:10:16: Global taskHead initialized to null value:
+                            task * taskHead = NULL = NULL
+../src/taskCRUD.c: (in function createTaskLL)
+../src/taskCRUD.c:15:13: Arrow access from possibly null pointer temp:
+                            temp->taskId
+   ../src/taskCRUD.c:14:14: Storage temp may become null
+../src/taskCRUD.c:19:16: Parameter 1 (temp->taskName) to function strcpy is
+    declared unique but may be aliased externally by parameter 2 (name)
+  A unique or only parameter may be aliased by some other parameter or visible
+  global. (Use -mayaliasunique to inhibit warning)
+../src/taskCRUD.c:20:16: Parameter 1 (temp->taskDesc) to function strcpy is
+    declared unique but may be aliased externally by parameter 2 (desc)
+../src/taskCRUD.c:35:2: Function returns with null storage derivable from
+                           global taskHead->next
+  A possibly null pointer is reachable from a parameter or global variable that
+  is not declared using a /*@null@*/ annotation. (Use -nullstate to inhibit
+  warning)
+   ../src/taskCRUD.c:21:20: Storage taskHead->next becomes null
+../src/taskCRUD.c: (in function updateTaskCSVFromLL)
+../src/taskCRUD.c:74:21: Possibly null storage taskFile passed as non-null
+                            param: fprintf (taskFile, ...)
+  A possibly null pointer is passed as a parameter corresponding to a formal
+  parameter with no /*@null@*/ annotation.  If NULL may be used for this
+  parameter, add a /*@null@*/ annotation to the function parameter declaration.
+  (Use -nullpass to inhibit warning)
+   ../src/taskCRUD.c:71:24: Storage taskFile may become null
+../src/taskCRUD.c:77:16: Possibly null storage taskFile passed as non-null
+                            param: fclose (taskFile)
+   ../src/taskCRUD.c:71:24: Storage taskFile may become null
+../src/taskCRUD.c:77:9: Return value (type int) ignored: fclose(taskFile)
+../src/taskCRUD.c: (in function appendTaskLL)
+../src/taskCRUD.c:146:12: Parameter 1 (temp->taskName) to function strcpy is
+    declared unique but may be aliased externally by parameter 2 (name)
+../src/taskCRUD.c:147:12: Parameter 1 (temp->taskDesc) to function strcpy is
+    declared unique but may be aliased externally by parameter 2 (desc)
+../src/taskCRUD.c:163:2: Function returns with null storage derivable from
+                            global taskHead->next
+   ../src/taskCRUD.c:148:17: Storage taskHead->next becomes null
+../src/taskCRUD.c: (in function loadTasks)
+../src/taskCRUD.c:173:9: Test expression for while not boolean, type int: 1
+  Test expression type is not boolean or int. (Use -predboolint to inhibit
+  warning)
+../src/taskCRUD.c:182:32: Possibly null storage data passed as non-null param:
+                             atoi (data)
+   ../src/taskCRUD.c:181:26: Storage data may become null
+../src/taskCRUD.c:184:32: Possibly null storage data passed as non-null param:
+                             atoi (data)
+   ../src/taskCRUD.c:183:26: Storage data may become null
+../src/taskCRUD.c:186:32: Possibly null storage data passed as non-null param:
+                             atoi (data)
+   ../src/taskCRUD.c:185:26: Storage data may become null
+../src/taskCRUD.c:190:33: Possibly null storage data passed as non-null param:
+                             strcpy (..., data)
+   ../src/taskCRUD.c:189:26: Storage data may become null
+../src/taskCRUD.c:192:33: Possibly null storage data passed as non-null param:
+                             strcpy (..., data)
+   ../src/taskCRUD.c:191:26: Storage data may become null
+../src/taskCRUD.c:198:5: Return value (type int) ignored: fclose(taskFile)
+../src/taskCRUD.c: (in function appendTasksCSV)
+../src/taskCRUD.c:209:5: Return value (type int) ignored: fclose(taskFile)
+../src/taskCRUD.c: (in function freeTasksLL)
+../src/taskCRUD.c:215:9: Only storage taskHead->next assigned to unqualified:
+                            taskHead = taskHead->next
+  The only reference to this storage is transferred to another reference (e.g.,
+  by returning it) that does not have the only annotation. This may lead to a
+  memory leak, since the new reference is not necessarily released. (Use
+  -onlytrans to inhibit warning)
+../src/taskCRUD.c:216:14: Only storage tempNode->next (type struct _task_ *)
+    derived from released storage is not released (memory leak): tempNode
+  A storage leak due to incomplete deallocation of a structure or deep pointer
+  is suspected. Unshared storage that is reachable from a reference that is
+  being deallocated has not yet been deallocated. Splint assumes when an object
+  is passed as an out only void pointer that the outer object will be
+  deallocated, but the inner objects will not. (Use -compdestroy to inhibit
+  warning)
+../src/userStoriesCRUD.c:9:26: Global userStoryHead initialized to null value:
+                                  userStoryHead = NULL
+../src/userStoriesCRUD.c:9:26: Global userStoryHead initialized to null value:
+                                  userStory * userStoryHead = NULL = NULL
+../src/userStoriesCRUD.c: (in function createUserStoryLL)
+../src/userStoriesCRUD.c:14:13: Arrow access from possibly null pointer temp:
+                                   temp->storyId
+   ../src/userStoriesCRUD.c:13:14: Storage temp may become null
+../src/userStoriesCRUD.c:17:16: Parameter 1 (temp->storyName) to function
+    strcpy is declared unique but may be aliased externally by parameter 2
+    (name)
+../src/userStoriesCRUD.c:18:16: Parameter 1 (temp->storyDesc) to function
+    strcpy is declared unique but may be aliased externally by parameter 2
+    (desc)
+../src/userStoriesCRUD.c:33:2: Function returns with null storage derivable
+                                  from global userStoryHead->next
+   ../src/userStoriesCRUD.c:19:20: Storage userStoryHead->next becomes null
+../src/userStoriesCRUD.c: (in function appendUserStoryCSV)
+../src/userStoriesCRUD.c:68:5: Return value (type int) ignored:
+                                  fclose(userStory...
+../src/userStoriesCRUD.c: (in function insert_end)
+../src/userStoriesCRUD.c:83:12: Parameter 1 (temp->storyName) to function
+    strcpy is declared unique but may be aliased externally by parameter 2
+    (name)
+../src/userStoriesCRUD.c:84:12: Parameter 1 (temp->storyDesc) to function
+    strcpy is declared unique but may be aliased externally by parameter 2
+    (desc)
+../src/userStoriesCRUD.c:99:2: Function returns with null storage derivable
+                                  from global userStoryHead->next
+   ../src/userStoriesCRUD.c:85:17: Storage userStoryHead->next becomes null
+../src/userStoriesCRUD.c: (in function updateUserStoryCSVFromLL)
+../src/userStoriesCRUD.c:133:21: Possibly null storage taskFile passed as
+                                    non-null param: fprintf (taskFile, ...)
+   ../src/userStoriesCRUD.c:130:24: Storage taskFile may become null
+../src/userStoriesCRUD.c:136:16: Possibly null storage taskFile passed as
+                                    non-null param: fclose (taskFile)
+   ../src/userStoriesCRUD.c:130:24: Storage taskFile may become null
+../src/userStoriesCRUD.c:136:9: Return value (type int) ignored:
+                                   fclose(taskFile)
+../src/userStoriesCRUD.c: (in function loadUserStories)
+../src/userStoriesCRUD.c:148:9: Test expression for while not boolean, type
+                                   int: 1
+../src/userStoriesCRUD.c:157:32: Possibly null storage data passed as non-null
+                                    param: atoi (data)
+   ../src/userStoriesCRUD.c:156:26: Storage data may become null
+../src/userStoriesCRUD.c:159:35: Possibly null storage data passed as non-null
+                                    param: atoi (data)
+   ../src/userStoriesCRUD.c:158:26: Storage data may become null
+../src/userStoriesCRUD.c:159:30: Variable c initialized to type int, expects
+                                    double: atoi(data)
+../src/userStoriesCRUD.c:163:33: Possibly null storage data passed as non-null
+                                    param: strcpy (..., data)
+   ../src/userStoriesCRUD.c:162:26: Storage data may become null
+../src/userStoriesCRUD.c:165:33: Possibly null storage data passed as non-null
+                                    param: strcpy (..., data)
+   ../src/userStoriesCRUD.c:164:26: Storage data may become null
+../src/userStoriesCRUD.c:171:5: Return value (type int) ignored:
+                                   fclose(userStory...
+../src/userStoriesCRUD.c: (in function freeUserStoriesLL)
+../src/userStoriesCRUD.c:177:9: Only storage userStoryHead->next assigned to
+    unqualified: userStoryHead = userStoryHead->next
+../src/userStoriesCRUD.c:178:14: Only storage tempNode->next (type struct
+    _userStory_ *) derived from released storage is not released (memory leak):
+    tempNode
+../src/utilities.c: (in function checkLogin)
+../src/utilities.c:21:20: Possibly null storage data passed as non-null param:
+                             atoi (data)
+   ../src/utilities.c:19:14: Storage data may become null
+../src/utilities.c:24:23: Possibly null storage data passed as non-null param:
+                             strcmp (data, ...)
+   ../src/utilities.c:23:18: Storage data may become null
+../src/utilities.c:26:33: Possibly null storage data passed as non-null param:
+                             atoi (data)
+   ../src/utilities.c:25:22: Storage data may become null
+../src/utilities.c:31:5: Return value (type int) ignored: fclose(usersData...
+../src/featureCRUD.c:9:10: Variable exported but not used outside featureCRUD:
+                              f1
+  A declaration is exported, but not used outside this module. Declaration can
+  use static qualifier. (Use -exportlocal to inhibit warning)
+../src/taskCRUD.c:10:7: Variable exported but not used outside taskCRUD:
+                           taskHead
+../src/userStoriesCRUD.c:9:12: Variable exported but not used outside
+                                  userStoriesCRUD: userStoryHead
+
