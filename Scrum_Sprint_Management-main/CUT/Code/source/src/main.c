@@ -11,8 +11,8 @@ int main()
 	loadUserStories();
 	loadTasks();
 	printf("\n\t--------------------------------------------");
-    printf("\n\t---     Welcome to Scrum Process Management      ---");
-    printf("\n\t------------------------------------------------");
+        printf("\n\t---     Welcome to Scrum Process Management      ---");
+        printf("\n\t------------------------------------------------");
 	int ch=1;
 	while(ch!=0)
 	{
